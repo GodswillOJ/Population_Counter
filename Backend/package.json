@@ -14,7 +14,8 @@
   "main": "scripts.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon scripts.js"
+    "start": "nodemon scripts.js",
+    "build": "npm i"
   },
   "keywords": [],
   "author": "",
