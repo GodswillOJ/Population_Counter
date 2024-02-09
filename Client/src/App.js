@@ -28,7 +28,7 @@ function App() {
     // If logged in, fetch user data
     if (storedLoggedIn) {
       try {
-        const response = await axios.get('https://population-counter.onrender.com/api/home'); // Assuming your backend endpoint to fetch user data is '/api/home'
+        const response = await axios.get('https://population-counter.onrender.com/home'); // Assuming your backend endpoint to fetch user data is '/api/home'
         setUser(response.data.user); // Assuming the response contains user data under the key 'user'
       } catch (error) {
         console.error('Error fetching user data:', error);

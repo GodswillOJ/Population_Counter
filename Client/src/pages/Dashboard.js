@@ -21,7 +21,7 @@ const LoadDashboard = () => {
         return;
       }
 
-      const response = await axios.get('https://population-counter.onrender.com/api/dashboard', {
+      const response = await axios.get('https://population-counter.onrender.com/dashboard', {
         headers: {
           Authorization: `Bearer ${cookies.access_token}`,
         },
