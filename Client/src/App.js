@@ -57,7 +57,7 @@ function App() {
       <Router>
         <div>
           <CounterNav isLoggedIn={isLoggedIn} onLogout={handleLogout} user={user} /> {/* Pass user data to CounterNav */}
-        </div>
+        </div>,
 
         <Routes>
           <Route path="/" element={<Home isLoggedIn={isLoggedIn} user={user} />} /> {/* Pass user data to Home */}
