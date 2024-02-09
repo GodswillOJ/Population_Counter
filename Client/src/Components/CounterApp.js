@@ -26,7 +26,7 @@ function CounterApp() {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/addToPop', { name, state, address, dateOfBirth, nin });
+      await axios.post('https://population-counter.onrender.com/api/addToPop', { name, state, address, dateOfBirth, nin });
       alert('User added successfully!');
       setName('');
       setState('');

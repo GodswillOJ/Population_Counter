@@ -5,7 +5,7 @@ import CounterNav from './Components/CounterNav';
 import { Register, Login } from './pages/auth';
 import Population from './pages/AddToPop';
 import LoadDashboard from './pages/Dashboard';
-import Home from './pages/Home'; // Import the Home component
+import Home from './pages/home'; // Import the Home component
 import axios from 'axios';
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
     // If logged in, fetch user data
     if (storedLoggedIn) {
       try {
-        const response = await axios.get('http://localhost:5000/api/home'); // Assuming your backend endpoint to fetch user data is '/api/home'
+        const response = await axios.get('https://population-counter.onrender.com/api/home'); // Assuming your backend endpoint to fetch user data is '/api/home'
         setUser(response.data.user); // Assuming the response contains user data under the key 'user'
       } catch (error) {
         console.error('Error fetching user data:', error);
