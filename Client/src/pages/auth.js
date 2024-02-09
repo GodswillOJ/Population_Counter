@@ -88,7 +88,7 @@ export const Register = () => {
       setPassword('');
       alert('User added successfully. Proceed to login!');
     } catch (error) {
-      console.error('Error adding user:', error.message);
+      console.error('Error adding user:', error);
       setError('Error adding user. Please try again.'); // Provide user-friendly feedback
     } finally {
       setLoading(false);

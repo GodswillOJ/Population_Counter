@@ -2,10 +2,10 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:5000",
+  "proxy": "http://localhost:10000",
   "devServer": {
-    "allowedHosts": "localhost:5000"
-  },  
+    "allowedHosts": "localhost:10000"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
@@ -26,8 +26,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm i",
     "test": "react-scripts test",
+    "build": "react-scripts build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -49,6 +49,7 @@
     ]
   },
   "devDependencies": {
-    "@types/chart.js": "^2.9.41"
+    "@types/chart.js": "^2.9.41",
+    "webpack-cli": "^5.1.4"
   }
 }
