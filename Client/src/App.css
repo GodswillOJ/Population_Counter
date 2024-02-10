@@ -222,18 +222,24 @@ main{
 /* Counter Container  */
 .CounterCont{
   position: relative;
+  margin: 10%;
+}
+
+.CounterCont div{
+  position: relative;
   background-color: none;
   background-color: none;
-  margin: 7rem 5rem 0 5rem;
   font-family: 'News Cycle', sans-serif;
   border-radius: 5px;
 }
 
 .Counter_Engine{
   position: relative;
-  width: 100%;
+  margin: 10% 0 10%;
   height: 27rem;
-  padding: 15px;
+}
+.Counter_Engine div{
+  display: grid;
 }
 .Counter_Engine h1{
   position: relative;
@@ -253,8 +259,8 @@ main{
 }
 .Counter_Engine input{
   position: relative;
-  width: 100%;
-  padding: 5px;
+  padding: 10px;
+  margin-bottom: 8px;
   border: 1px solid #e8e8ea;
   box-shadow: 2px 4px 6px rgba(15, 16, 16, 0.1);
   border-radius: 8px;
@@ -262,7 +268,6 @@ main{
 .Counter_Engine button{
   position: relative;
   width: 100%;
-  border: none;
   border-radius: 5px;
   background: linear-gradient(to right, #1815dd, #16569e);
   margin-top: 30px;
@@ -516,6 +521,20 @@ main{
   display: block;
 }
 
+.CounterCont{
+  position: relative;
+  
+  margin-top: 8rem;
+}
+.Counter_Engine button{
+  position: relative;
+  width: 100%;
+  border-radius: 5px;
+  background: linear-gradient(to right, #1815dd, #16569e);
+  margin-top: 30px;
+  padding: 10px;
+}
+
 
 .Logout_Btn{
   text-align: end;
@@ -528,10 +547,18 @@ main{
 @media screen and (max-width: 375px){
   .CounterCont{
     position: relative;
-    background-color: none;
-    background-color: none;
-    margin: 7rem 2rem 0 2rem;
-    font-family: 'News Cycle', sans-serif;
     border-radius: 5px;
   } 
+  .Counter_Engine input{
+    position: relative;
+    width: auto;
+  }
+  .Counter_Engine button{
+    position: relative;
+    width: 100%;
+    border-radius: 5px;
+    background: linear-gradient(to right, #1815dd, #16569e);
+    margin-top: 30px;
+    padding: 10px;
+  }
 }
