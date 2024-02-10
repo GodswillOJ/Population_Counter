@@ -221,7 +221,12 @@ body.dark-theme .circle {
 .text {
   text-align: center; /* Center the text horizontally */
 }
-.my_site_symbol{
-  margin-left: 20%;
-  margin-top: 10%;
+.my_site_symbol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
