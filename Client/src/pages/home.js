@@ -4,7 +4,12 @@ import React from 'react';
 const Home = ({ isLoggedIn, user }) => {
   return (
     <div className="Home">
-      <h2>Welcome to the Home Page!</h2>
+      <h4>Welcome to the Home Page!</h4>
+      <div className='my_site_symbol'>
+        <div class="circle">
+          <span class="text">Population Counter</span>
+        </div>
+      </div>
       {isLoggedIn && user && (
         <div>
           <p>Hello, {user.username}!</p> {/* Display user data */}

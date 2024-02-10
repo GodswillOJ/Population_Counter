@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Rajdhani:wght@300;400&display=swap');
 .navbar {
   display: flex;
   justify-content: space-around;
@@ -184,3 +185,43 @@ body.dark-theme .userDashBoard{
   border-radius: 5px;
 }
 
+/* Home styles */
+.Home h4{
+  position: relative;
+  margin-top: 8%;
+  margin-left: 3%;
+  font-family: 'Rajdhani', sans-serif;
+}
+body.dark-theme .Home h4{
+  color: #b89393;
+}
+
+/* styles for In */
+.circle {
+  width: 200px; /* Set the width and height to create a circle */
+  height: 200px;
+  border-radius: 50%; /* Make it circular */
+  background: linear-gradient(to right, #dd1568, #d9d5d6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+body.dark-theme .circle {
+  width: 200px; /* Set the width and height to create a circle */
+  height: 200px;
+  border-radius: 50%; /* Make it circular */
+  background: linear-gradient(to right, #dd1568, #d9d5d6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.text {
+  text-align: center; /* Center the text horizontally */
+}
+.my_site_symbol{
+  margin-left: 20%;
+  margin-top: 10%;
+}
