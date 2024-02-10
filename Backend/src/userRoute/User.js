@@ -18,6 +18,6 @@ userRouter.post('/login', userController.LoginVerify);
 
 userRouter.get('/dashboard', authenticateToken, userController.LoadDashboard);
 
-userRouter.get('/home', authenticateToken, userController.Home);
+userRouter.get('/', authenticateToken, userController.Home);
 
 export { userRouter };
