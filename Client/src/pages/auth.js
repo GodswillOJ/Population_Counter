@@ -83,6 +83,7 @@ export const Register = () => {
     e.preventDefault();
     try {
       await axios.post('https://population-counter.onrender.com/api/registerUser', { username, email, password });
+
       setUsername('');
       setEmail('');
       setPassword('');
