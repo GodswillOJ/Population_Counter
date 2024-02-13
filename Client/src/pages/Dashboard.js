@@ -17,7 +17,7 @@ const Dashboard = () => {
         if (accessToken) {
           setIsAuthenticated(true);
           // Fetch user data for the dashboard
-          const response = await axios.get('/api/dashboard', {
+          const response = await axios.get('https://population-counter.onrender.com/api/dashboard', {
             headers: {
               Authorization: `Bearer ${accessToken}` // Include the access token in the request headers
             }
