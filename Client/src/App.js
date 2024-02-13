@@ -4,13 +4,14 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import CounterNav from './Components/CounterNav';
 import { Register, Login } from './pages/auth';
 import Population from './pages/AddToPop';
-import LoadDashboard from './pages/Dashboard';
+import Dashboard from './pages/Dashboard'; // Update the path accordingly
+
 import Home from './pages/home'; // Import the Home component
 import axios from 'axios';
 
 function App() {
   // State and functions to handle user authentication and data
-  const [isLoggedIn, setLoggedIn] = useState(null);
+  const [isLoggedIn, setLoggedIn] = useState(false); // Initialize as false
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null); // State to hold user data
 
@@ -26,14 +27,7 @@ function App() {
     setLoading(false);
 
     // If logged in, fetch user data
-    if (storedLoggedIn) {
-      try {
-        const response = await axios.get('https://population-counter.onrender.com/api/'); // Assuming your backend endpoint to fetch user data is '/api/home'
-        setUser(response.data.user); // Assuming the response contains user data under the key 'user'
-      } catch (error) {
-        console.error('Error fetching user data:', error);
-      }
-    }
+
   };
 
   // Handle user login
@@ -56,18 +50,19 @@ function App() {
     <div className="App">
       <Router>
         <div>
-          <CounterNav isLoggedIn={isLoggedIn} onLogout={handleLogout} user={user} /> {/* Pass user data to CounterNav */}
+          <CounterNav isLoggedIn={isLoggedIn} onLogout={handleLogout} user={user} />
         </div>,
 
         <Routes>
-          <Route path="/" element={<Home isLoggedIn={isLoggedIn} user={user} />} /> {/* Pass user data to Home */}
-          <Route path="/addToPop" element={isLoggedIn ? <Population /> : <Navigate to="/login" />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login onLogin={handleLogin} />} />
-          <Route path="/dashboard" element={isLoggedIn ? <LoadDashboard /> : <Navigate to="/login" />} />
-          <Route path="/logout" element={<Navigate to="/login" />} />
-          {/* Add more routes as needed */}
-        </Routes>
+            <Route path="/" element={<Home isLoggedIn={isLoggedIn} user={user} />} />
+            <Route path="/addToPop" element={isLoggedIn ? <Population /> : <Navigate to="/login" />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login onLogin={handleLogin} />} />
+            <Route path="/logout" element={<Navigate to="/login" />} />
+            <Route path="/dashboard" element={<Dashboard />} /> {/* Add this Route */}
+            {/* Add more routes as needed */}
+          </Routes>
+
       </Router>
     </div>
   );

@@ -70,28 +70,19 @@ export const LoginVerify = async (req, res) => {
     // Generate JWT token
     if (user.is_admin === 0) {
       const token = jwt.sign({ userId: user._id }, JWT_Phrase, { expiresIn: '1d' }); // set to 1 day
-
+      
       res.json({ access_token: token, userID: user._id });
     } else {
-      res.status(500).json({ error: 'Login Error. No Such User' });
+      // Change the status to 401 for consistency with the frontend
+      res.status(401).json({ error: 'Invalid credentials' });
     }
   } catch (error) {
-    console.error('Login error:', error);
+    console.error('Login error:', error.message);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };
 
-export const LoadDashboard = async (req, res) => {
-  // You can fetch data for the dashboard here
-  // For simplicity, let's send a sample data
-  const dashboardData = {
-    Users: 100,
-    Database: 50,
-    // Add more data as needed
-  };
 
-  res.json(dashboardData);
-};
 
 export const Home = async (req, res) => {
   try {
@@ -105,6 +96,18 @@ export const Home = async (req, res) => {
     }
   } catch (error) {
     console.error('Error loading home page:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+// Controller function to fetch user data for the dashboard
+export const fetchUserData = async (req, res) => {
+  try {
+    // Fetch user data
+    const userData = await User.findById(req.user.userId); // Assuming you have a User model
+    res.json(userData);
+  } catch (error) {
+    console.error('Error fetching user data for dashboard:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };

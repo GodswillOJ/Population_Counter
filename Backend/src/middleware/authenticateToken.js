@@ -1,17 +1,30 @@
-export const authenticateToken = (req, res, next) => {
-  const token = req.header('Authorization')?.split(' ')[1];
-  console.log('Received token:', token);
+// middleware/authenticateToken.js
 
-  if (!token) return res.status(401).json({ error: 'Unauthorized' });
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 
-  jwt.verify(token, JWT_Phrase, (err, decoded) => {
+dotenv.config();
+
+const JWT_Phrase = process.env.JWT;
+
+export const isAuthenticated = (req, res, next) => {
+  // Extract the token from the Authorization header
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+
+  if (!token) {
+    return res.status(401).json({ error: 'Unauthorized' }); // No token provided
+  }
+
+  // Verify the token
+  jwt.verify(token, JWT_Phrase, (err, decodedToken) => {
     if (err) {
       console.error('Error verifying token:', err);
-      return res.status(403).json({ error: 'Forbidden' });
+      return res.status(401).json({ error: 'Unauthorized' }); // Token verification failed
     }
-
-    console.log('Decoded user:', decoded);
-    req.user = decoded;
-    next();
+    
+    // Token is valid, attach the decoded token to the request object
+    req.user = decodedToken;
+    next(); // Proceed to the next middleware
   });
 };

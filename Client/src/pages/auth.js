@@ -24,8 +24,9 @@ export const Login = ({ onLogin }) => {
   
       console.log('Access Token:', response.data.access_token);
   
-      setCookies('access_token', response.data.access_token, { path: '/' });
-      window.localStorage.setItem('userID', response.data.userID);
+      // Set the access token in localStorage instead of cookies
+      localStorage.setItem('access_token', response.data.access_token);
+      localStorage.setItem('userID', response.data.userID); // Store user ID in localStorage as well
       onLogin();
   
       navigate('/dashboard');
@@ -41,6 +42,7 @@ export const Login = ({ onLogin }) => {
       setLoading(false);
     }
   };
+  
   
   
 
