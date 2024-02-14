@@ -1,21 +1,57 @@
-// Home.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Navigate } from 'react-router-dom';
 
-const Home = ({ isLoggedIn, user }) => {
+const Home = ({ isLoggedIn }) => {
+  const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        if (isLoggedIn) {
+          const accessToken = localStorage.getItem('access_token');
+          const response = await axios.get('/api/dashboard', { // Updated URL
+            headers: {
+              Authorization: `Bearer ${accessToken}`
+            }
+          });
+          setUserData(response.data); // Updated to response.data since response structure might not have a nested 'user' object
+        }
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUserData();
+  }, [isLoggedIn]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
   return (
     <div className="Home">
-      <h4>Welcome to the Home Page!</h4>
+         {isLoggedIn && userData && (
+        <div id="my_home_cont">
+          <div id="my_home_det">
+           <h4>Welcome, {userData.username}</h4>
+          </div>
+        </div>
+      )}
       <div className='my_site_symbol'>
         <div class="circle">
           <span class="text">Population Counter</span>
         </div>
       </div>
-      {isLoggedIn && user && (
-        <div>
-          <p>Hello, {user.username}!</p> {/* Display user data */}
-          {/* Display more user data as needed */}
-        </div>
-      )}
     </div>
   );
 };

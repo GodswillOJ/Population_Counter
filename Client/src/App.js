@@ -1,13 +1,13 @@
-// App.js
-
+// Modified App component
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import CounterNav from './Components/CounterNav';
+import MyFooter from './Components/myFooter';
 import { Register, Login } from './pages/auth';
 import Population from './pages/AddToPop';
 import Dashboard from './pages/Dashboard';
 import Home from './pages/home';
-import axios from 'axios'; // Import Axios for making HTTP requests
+import axios from 'axios';
 
 const PrivateRoute = ({ element, authenticated, ...props }) => {
   return authenticated ? element : <Navigate to="/login" />;
@@ -27,7 +27,6 @@ function App() {
     setLoggedIn(storedLoggedIn);
     setLoading(false);
     if (storedLoggedIn) {
-      // Fetch user data if user is logged in
       try {
         const response = await axios.get('https://population-counter.onrender.com/api/dashboard', {
           headers: {
@@ -37,8 +36,8 @@ function App() {
         setUser(response.data.user);
       } catch (error) {
         console.error('Error fetching user data:', error);
-        setLoggedIn(false); // Log out user if there's an error fetching user data
-        localStorage.removeItem('access_token'); // Remove invalid token from local storage
+        setLoggedIn(false);
+        localStorage.removeItem('access_token');
       }
     }
   };
@@ -61,12 +60,14 @@ function App() {
       <Router>
         <div>
           <CounterNav isLoggedIn={isLoggedIn} onLogout={handleLogout} user={user} />
+          <MyFooter isLoggedIn={isLoggedIn} onLogout={handleLogout} user={user} />
         </div>
         <Routes>
-          <Route path="/" element={<Home isLoggedIn={isLoggedIn} user={user} />} />
+          <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
           <Route path="/addToPop" element={isLoggedIn ? <Population /> : <Navigate to="/login" />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
+          <Route path="/logout" element={<Logout onLogout={handleLogout} />} />
           {/* Use PrivateRoute for the Dashboard */}
           <Route path="/dashboard" element={<PrivateRoute element={<Dashboard />} authenticated={isLoggedIn} />} />
           {/* Add more routes as needed */}
@@ -78,7 +79,6 @@ function App() {
 
 const Logout = ({ onLogout }) => {
   useEffect(() => {
-    // Call the onLogout function when component mounts
     onLogout();
   }, [onLogout]);
 
