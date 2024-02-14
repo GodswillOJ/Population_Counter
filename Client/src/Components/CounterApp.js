@@ -1,28 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 function CounterApp() {
+  const [dashboardData, setDashboardData] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
   const [name, setName] = useState('');
   const [state, setState] = useState('');
   const [address, setAddress] = useState('');
   const [dateOfBirth, setDateOfBirth] = useState('');
   const [nin, setNin] = useState('');
 
-  const navigate = useNavigate();
-
-  // Use effect to check if the user is authenticated when the component mounts
-  useEffect(() => {
-    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-    console.log('CounterApp isLoggedIn:', isLoggedIn);
-  
-    if (!isLoggedIn) {
-      // Redirect to login page or perform any other action
-      navigate('/login');
-    }
-  }, [navigate]);
-  
-  
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -37,6 +26,39 @@ function CounterApp() {
       console.error('Error adding user:', error);
     }
   };
+
+  useEffect(() => {
+    const checkAuthentication = async () => {
+      try {
+        const accessToken = localStorage.getItem('access_token');
+        if (accessToken) {
+          setIsAuthenticated(true);
+          const response = await axios.get('https://population-counter.onrender.com/api/addToPop', {
+            headers: {
+              Authorization: `Bearer ${accessToken}`
+            }
+          });
+          setDashboardData(response.data);
+        } else {
+          setIsAuthenticated(false);
+        }
+      } catch (error) {
+        setIsAuthenticated(false);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    checkAuthentication();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!isAuthenticated) {
+    return <Navigate to="/login" />;
+  }
 
   const states = [
     'Abia', 'Adamawa', 'Akwa Ibom', 'Anambra', 'Bauchi', 'Bayelsa', 'Benue', 'Borno', 'Cross River', 'Delta',
@@ -71,7 +93,6 @@ function CounterApp() {
               id="stateSelect"
               value={state}
               onChange={(e) => setState(e.target.value)}
-              // className={isOpen ? 'open' : ''}
             >
               <option value="">Select State</option>
               {states.map((state, index) => (

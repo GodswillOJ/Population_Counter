@@ -8,6 +8,7 @@ userRouter.use(express.urlencoded({ extended: true }));
 userRouter.use(express.json());
 
 userRouter.post('/registerUser', userController.insertUser);
+userRouter.get('/addToPop', isAuthenticated, userController.fetchUserData);
 userRouter.post('/addToPop', userController.insertPopulation);
 userRouter.post('/login', userController.LoginVerify);
 

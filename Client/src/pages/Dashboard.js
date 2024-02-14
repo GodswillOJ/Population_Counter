@@ -105,8 +105,6 @@ const Dashboard = () => {
       <h2>Dashboard</h2>
       {userData && (
         <div>
-          {/* <p>Username: {userData.username}</p>
-          <p>Email: {userData.email}</p> */}
           <div className="userDashBoard">
               <header className={`nav dropdown fixed-header ${isDropdownOpen ? 'open' : ''}`} id="menu">
                 <button onClick={toggleDropdown}>
@@ -129,12 +127,10 @@ const Dashboard = () => {
                     <div id="dash_head">
                     <h2>User Dashboard</h2>
                         <ul id="entry_cont">
-                          {Object.entries(dashboardData).map(([key, value]) => (
-                            <li id="my_entries" key={key}>
-                              <strong>{key}:</strong> {value}
-                            </li>
-                            
-                          ))}
+                          <li id="my_entries">
+                              <p>Username: {userData.username}</p>
+                              <p>Email: {userData.email}</p>
+                          </li>
                         </ul>
                         <div id="highlights">
                             <h1>Good Day, Samantha!</h1>
