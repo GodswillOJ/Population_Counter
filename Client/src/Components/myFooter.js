@@ -8,9 +8,10 @@ function MyFooter() {
     return(
         <div className="Footer">
             <div>
-            <Link to="/linkedin"><li><FontAwesomeIcon icon={faLinkedin} /></li></Link>
-            <Link to="/facebook"><li><FontAwesomeIcon icon={faTwitter} /></li></Link>
-            <Link to="/instagram"><li><FontAwesomeIcon icon={faInstagram} /></li></Link>
+            <Link to="https://www.linkedin.com/in/godswill-ogono-861802144/"><li><FontAwesomeIcon icon={faLinkedin} /></li></Link>
+            <Link to="https://www.twitter.com/"><li><FontAwesomeIcon icon={faTwitter} /></li></Link>
+            <Link to="https://www.instagram.com/godswill_oj/"><li><FontAwesomeIcon icon={faInstagram} /></li></Link>
+            <Link to="https://api.whatsapp.com/send?phone=2347036744231&text=Hello, more information!"><li><FontAwesomeIcon icon={faInstagram} /></li></Link>
             </div>
         </div>
     )

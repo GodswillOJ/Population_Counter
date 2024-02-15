@@ -243,10 +243,29 @@ body.dark-theme #my_home_cont #my_home_det h4{
   background: none;
   bottom: 0;
 }
+#Footer_Dash{
+  position: relative;
+  width: 100%;
+  background: none;
+  bottom: 0;
+}
+#Footer_Dash div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .Footer div{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+#Footer_Dash div a{
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  padding: 10px;
+  list-style: none;
+  color: #75175a;
 }
 .Footer div a{
   display: flex;
@@ -255,6 +274,9 @@ body.dark-theme #my_home_cont #my_home_det h4{
   padding: 10px;
   list-style: none;
   color: #75175a;
+}
+body.dark-theme .Footer div a{
+  color: #b87ba6;
 }
 
 

@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, Navigate } from 'react-router-dom'; // Import Navigate for redirection
 import Chart from 'chart.js/auto';
-import MyFooter from '../Components/myFooter'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedin, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
+
 
 const Dashboard = () => {
   const [dashboardData, setDashboardData] = useState({});
@@ -127,14 +129,13 @@ const Dashboard = () => {
                 <div className="dashboard_sec">
                     <div id="dash_head">
                     <h2>User Dashboard</h2>
-                        <ul id="entry_cont">
+                        {/* <ul id="entry_cont">
                           <li id="my_entries">
                               <p>Username: {userData.username}</p>
-                              <p>Email: {userData.email}</p>
                           </li>
-                        </ul>
+                        </ul> */}
                         <div id="highlights">
-                            <h1>Good Day, Samantha!</h1>
+                            <h1>Good Day, {userData.username}!</h1>
                             <p>Hey Samantha, Here is your store overview</p>
                         </div>
 
@@ -180,11 +181,18 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </div>
+                  <div id="Footer_Dash">
+                      <div>
+                      <Link to="https://www.linkedin.com/in/godswill-ogono-861802144/"><li><FontAwesomeIcon icon={faLinkedin} /></li></Link>
+                      <Link to="https://www.twitter.com/"><li><FontAwesomeIcon icon={faTwitter} /></li></Link>
+                      <Link to="https://www.instagram.com/godswill_oj/"><li><FontAwesomeIcon icon={faInstagram} /></li></Link>
+                      <Link to="https://api.whatsapp.com/send?phone=2347036744231&text=Hello, more information!"><li><FontAwesomeIcon icon={faInstagram} /></li></Link>
+                      </div>
+                  </div>
               </div>
           </div>
         </div>
       )}
-      
     </div>
   );
 };
