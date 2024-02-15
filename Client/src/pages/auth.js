@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import {useCookies} from "react-cookie"
 import { useNavigate } from "react-router-dom"
+import MyFooter from '../Components/myFooter'
 
 export const Login = ({ onLogin }) => {
   const [username, setUsername] = useState('');
@@ -69,6 +70,7 @@ export const Login = ({ onLogin }) => {
 
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </form>
+      <MyFooter />
     </div>
   );
 };
@@ -140,6 +142,7 @@ const Form = ({ onSubmit, username, setUsername, email, setEmail, password, setP
           )}
         </form>
       </div>
+      <MyFooter />
     </div>
   );
 };

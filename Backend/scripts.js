@@ -1,18 +1,17 @@
-// server.js
 import express from 'express';
 import mongoose from 'mongoose';
-import cors from 'cors';
+import cors from 'cors'; // Import cors middleware
 import dotenv from 'dotenv';
 import { userRouter } from './src/userRoute/User.js';
 
 dotenv.config();
 
-// ... (existing imports)
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Enable CORS for all routes
 app.use(cors());
+
 app.use(express.json());
 
 mongoose.connect(process.env.MONGODB_URl, {
@@ -36,8 +35,3 @@ app.use('/api', userRouter);
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
-
-
-
-
-

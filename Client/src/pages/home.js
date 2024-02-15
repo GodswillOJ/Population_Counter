@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Navigate } from 'react-router-dom';
+import MyFooter from '../Components/myFooter'// Import MyFooter component
 
 const Home = ({ isLoggedIn }) => {
   const [userData, setUserData] = useState(null);
@@ -12,9 +12,9 @@ const Home = ({ isLoggedIn }) => {
       try {
         if (isLoggedIn) {
           const accessToken = localStorage.getItem('access_token');
-          const response = await axios.get('https://population-counter-cxgx.onrender.com/api/', {
+          const response = await axios.get('https://population-counter.onrender.com/api/', {
             headers: {
-              Authorization: `Bearer ${accessToken}`
+              Authorization: `Bearer ${accessToken}` // Include the access token in the request headers
             }
           });
           setUserData(response.data);
@@ -48,13 +48,14 @@ const Home = ({ isLoggedIn }) => {
         </div>
       )}
       <div className='my_site_symbol'>
-        <div class="circle">
-          <span class="text">Population Counter</span>
+        <div className="circle">
+          <span className="text">Population Counter</span>
         </div>
       </div>
+      {/* Render MyFooter component */}
+      <MyFooter />
     </div>
   );
 };
 
 export default Home;
-

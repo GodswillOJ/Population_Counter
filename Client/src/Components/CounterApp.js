@@ -86,7 +86,7 @@ function CounterApp() {
           <input id="dateOfBirth" type="text" value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} />
         </div>
 
-        <div className="selectCont">
+        <div className="selectCont" id="state_select">
           <div className="form-group select-wrapper" id='selectWrap'>
             <label htmlFor="stateSelect">State:</label>
             <select

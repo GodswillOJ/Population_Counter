@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import CounterNav from './Components/CounterNav';
-import MyFooter from './Components/myFooter';
 import { Register, Login } from './pages/auth';
 import Population from './pages/AddToPop';
 import Dashboard from './pages/Dashboard';
@@ -71,9 +70,6 @@ function App() {
           <Route path="/dashboard" element={<PrivateRoute element={<Dashboard />} authenticated={isLoggedIn} />} />
           {/* Add more routes as needed */}
         </Routes>
-        <div>
-          <MyFooter isLoggedIn={isLoggedIn} onLogout={handleLogout} user={user} />
-        </div>
       </Router>
     </div>
   );

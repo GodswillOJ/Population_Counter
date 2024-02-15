@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, Navigate } from 'react-router-dom'; // Import Navigate for redirection
 import Chart from 'chart.js/auto';
+import MyFooter from '../Components/myFooter'
 
 const Dashboard = () => {
   const [dashboardData, setDashboardData] = useState({});

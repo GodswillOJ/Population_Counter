@@ -553,6 +553,7 @@ main{
   .CounterCont{
     position: relative;
     border-radius: 5px;
+    margin-top: 5rem;
   } 
   .Counter_Engine input{
     position: relative;
@@ -565,5 +566,9 @@ main{
     background: linear-gradient(to right, #1815dd, #16569e);
     margin-top: 30px;
     padding: 10px;
+  }
+  #state_select{
+    display: grid;
+    grid-template-columns: 1fr;
   }
 }
