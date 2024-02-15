@@ -14,6 +14,6 @@ userRouter.post('/login', userController.LoginVerify);
 
 userRouter.get('/dashboard', isAuthenticated, userController.fetchUserData); // Route to fetch user data for the dashboard
 
-userRouter.get('/', userController.fetchUserData);
+userRouter.get('/', isAuthenticated, userController.Home);
 
 export { userRouter };

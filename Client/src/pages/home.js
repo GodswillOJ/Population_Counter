@@ -12,12 +12,12 @@ const Home = ({ isLoggedIn }) => {
       try {
         if (isLoggedIn) {
           const accessToken = localStorage.getItem('access_token');
-          const response = await axios.get('https://population-counter-cxgx.onrender.com/api/dashboard', { // Updated URL
+          const response = await axios.get('https://population-counter-cxgx.onrender.com/api/', {
             headers: {
               Authorization: `Bearer ${accessToken}`
             }
           });
-          setUserData(response.data); // Updated to response.data since response structure might not have a nested 'user' object
+          setUserData(response.data.userData);
         }
       } catch (error) {
         console.error('Error fetching user data:', error);
@@ -40,10 +40,10 @@ const Home = ({ isLoggedIn }) => {
 
   return (
     <div className="Home">
-         {isLoggedIn && userData && (
+      {isLoggedIn && userData && (
         <div id="my_home_cont">
           <div id="my_home_det">
-           <h4>Welcome, {userData.username}</h4>
+            <h4>Welcome, {userData.username}</h4>
           </div>
         </div>
       )}
@@ -57,3 +57,4 @@ const Home = ({ isLoggedIn }) => {
 };
 
 export default Home;
+

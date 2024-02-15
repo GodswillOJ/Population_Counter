@@ -82,15 +82,13 @@ export const LoginVerify = async (req, res) => {
   }
 };
 
-
-
 export const Home = async (req, res) => {
   try {
     // Check if the user is logged in
     if (req.user) {
       // Fetch user data here
       const userData = await User.findById(req.user.userId); // Assuming you have a User model
-      res.json({ message: 'Welcome home!', user: userData });
+      res.json({ message: 'Welcome home!', userData });
     } else {
       res.json({ message: 'Welcome home!' }); // For unauthorized users
     }
@@ -99,6 +97,7 @@ export const Home = async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };
+
 
 // Controller function to fetch user data for the dashboard
 export const fetchUserData = async (req, res) => {
