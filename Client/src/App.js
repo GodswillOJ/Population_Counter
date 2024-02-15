@@ -60,7 +60,6 @@ function App() {
       <Router>
         <div>
           <CounterNav isLoggedIn={isLoggedIn} onLogout={handleLogout} user={user} />
-          <MyFooter isLoggedIn={isLoggedIn} onLogout={handleLogout} user={user} />
         </div>
         <Routes>
           <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
@@ -72,6 +71,9 @@ function App() {
           <Route path="/dashboard" element={<PrivateRoute element={<Dashboard />} authenticated={isLoggedIn} />} />
           {/* Add more routes as needed */}
         </Routes>
+        <div>
+          <MyFooter isLoggedIn={isLoggedIn} onLogout={handleLogout} user={user} />
+        </div>
       </Router>
     </div>
   );

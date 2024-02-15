@@ -238,7 +238,7 @@ body.dark-theme #my_home_cont #my_home_det h4{
   color: #df9a9a;
 }
 .Footer{
-  position: absolute;
+  position: fixed;
   width: 100%;
   background: none;
   bottom: 0;
