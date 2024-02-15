@@ -12,12 +12,12 @@ const Home = ({ isLoggedIn }) => {
       try {
         if (isLoggedIn) {
           const accessToken = localStorage.getItem('access_token');
-          const response = await axios.get('https://population-counter-cxgx.onrender.com/api/dashboard', {
+          const response = await axios.get('/api/dashboard', {
             headers: {
               Authorization: `Bearer ${accessToken}`
             }
           });
-          setUserData(response.data.userData);
+          setUserData(response.data);
         }
       } catch (error) {
         console.error('Error fetching user data:', error);
