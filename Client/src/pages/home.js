@@ -12,7 +12,7 @@ const Home = ({ isLoggedIn }) => {
       try {
         if (isLoggedIn) {
           const accessToken = localStorage.getItem('access_token');
-          const response = await axios.get('/api/', {
+          const response = await axios.get('https://population-counter-cxgx.onrender.com/api/', {
             headers: {
               Authorization: `Bearer ${accessToken}`
             }
