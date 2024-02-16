@@ -4,6 +4,7 @@ import { Link, Navigate } from 'react-router-dom'; // Import Navigate for redire
 import Chart from 'chart.js/auto';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faInstagram, faTwitter, faFacebook, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 
 const Dashboard = () => {
@@ -110,9 +111,9 @@ const Dashboard = () => {
         <div>
           <div className="userDashBoard">
               <header className={`nav dropdown fixed-header ${isDropdownOpen ? 'open' : ''}`} id="menu">
-                <button onClick={toggleDropdown}>
+                <button id="sub_nav_but" onClick={toggleDropdown}>
                   <div id="my_logo"><i className="fa-solid fa-house"></i> Gotech_dashboard</div>
-                  <i id="my_logo_down" className="fa-solid fa-chevron-down"></i>
+                  <FontAwesomeIcon icon={faCaretDown} id="icon001" />
                 </button>
                 <ul className={`dropdown-content ${isDropdownOpen ? 'show' : ''}`} id="myDropdown">
                   <Link to=""><li><p>Dashboard</p></li></Link>

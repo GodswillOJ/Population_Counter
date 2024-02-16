@@ -254,6 +254,17 @@ body.dark-theme #my_home_cont #my_home_det h4{
   justify-content: center;
   align-items: center;
 }
+
+#sub_nav_but{
+  display: flex;
+  justify-content: space-between;
+}
+#sub_nav_but{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .Footer div{
   display: flex;
   justify-content: center;
