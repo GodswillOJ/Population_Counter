@@ -12,7 +12,7 @@ function FindData() {
     try {
       setLoading(true);
       const accessToken = localStorage.getItem('access_token');
-      const response = await axios.get(`/api/usersByState/${state}`, {
+      const response = await axios.get(`https://population-counter.onrender.com/api/usersByState/${state}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
