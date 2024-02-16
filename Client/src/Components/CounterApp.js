@@ -70,7 +70,7 @@ function CounterApp() {
   return (
     <div className="CounterCont">
       <form onSubmit={onSubmit} className="Counter_Engine">
-        <h1 className="Title">Population Counter</h1>
+      <h2 className="Title" id="div_title">Population Counter</h2>
         <div className="form-group">
           <label>Name:</label>
           <input id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} />

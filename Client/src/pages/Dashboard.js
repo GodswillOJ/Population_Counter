@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link, Navigate } from 'react-router-dom'; // Import Navigate for redirection
 import Chart from 'chart.js/auto';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin, faInstagram, faTwitter, faFacebook, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 
 const Dashboard = () => {
@@ -48,7 +48,7 @@ const Dashboard = () => {
     if (clicksChartElement && ordersChartElement) {
       // Create Chart for clicks
       const clicksChart = new Chart(clicksChartElement, {
-        type: 'bar',
+        type: 'line',
         data: {
           labels: ['January', 'February', 'March', 'April', 'May', 'June'],
           datasets: [
@@ -65,7 +65,7 @@ const Dashboard = () => {
 
       // Create Chart for orders
       const ordersChart = new Chart(ordersChartElement, {
-        type: 'bar',
+        type: 'polarArea',
         data: {
           labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
           datasets: [
@@ -186,7 +186,8 @@ const Dashboard = () => {
                       <Link to="https://www.linkedin.com/in/godswill-ogono-861802144/"><li><FontAwesomeIcon icon={faLinkedin} /></li></Link>
                       <Link to="https://www.twitter.com/"><li><FontAwesomeIcon icon={faTwitter} /></li></Link>
                       <Link to="https://www.instagram.com/godswill_oj/"><li><FontAwesomeIcon icon={faInstagram} /></li></Link>
-                      <Link to="https://api.whatsapp.com/send?phone=2347036744231&text=Hello, more information!"><li><FontAwesomeIcon icon={faInstagram} /></li></Link>
+                      <Link to="https://api.whatsapp.com/send?phone=2347036744231&text=Hello, more information!"><li><FontAwesomeIcon icon={faWhatsapp} /></li></Link>
+                      <Link to="https://wwww.facebook.com/"><li><FontAwesomeIcon icon={faFacebook} /></li></Link>
                       </div>
                   </div>
               </div>

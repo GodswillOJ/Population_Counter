@@ -6,6 +6,7 @@ import { Register, Login } from './pages/auth';
 import Population from './pages/AddToPop';
 import Dashboard from './pages/Dashboard';
 import Home from './pages/home';
+import About from './pages/About';
 import axios from 'axios';
 
 const PrivateRoute = ({ element, authenticated, ...props }) => {
@@ -62,6 +63,7 @@ function App() {
         </div>
         <Routes>
           <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
+          <Route path="/About" element={<About isLoggedIn={isLoggedIn} />} />
           <Route path="/addToPop" element={isLoggedIn ? <Population /> : <Navigate to="/login" />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />

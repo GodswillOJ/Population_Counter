@@ -2,9 +2,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import {useCookies} from "react-cookie"
-import { useNavigate } from "react-router-dom"
-import MyFooter from '../Components/myFooter'
+import {useCookies} from "react-cookie";
+import { useNavigate } from "react-router-dom";
+import MyFooter from '../Components/myFooter';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedin, faInstagram, faTwitter, faFacebook, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 export const Login = ({ onLogin }) => {
   const [username, setUsername] = useState('');
@@ -70,7 +72,15 @@ export const Login = ({ onLogin }) => {
 
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </form>
-      <MyFooter />
+      <div id="Footer_Dash">
+          <div>
+          <Link to="https://www.linkedin.com/in/godswill-ogono-861802144/"><li><FontAwesomeIcon icon={faLinkedin} /></li></Link>
+          <Link to="https://www.twitter.com/"><li><FontAwesomeIcon icon={faTwitter} /></li></Link>
+          <Link to="https://www.instagram.com/godswill_oj/"><li><FontAwesomeIcon icon={faInstagram} /></li></Link>
+          <Link to="https://api.whatsapp.com/send?phone=2347036744231&text=Hello, more information!"><li><FontAwesomeIcon icon={faWhatsapp} /></li></Link>
+          <Link to="https://wwww.facebook.com/"><li><FontAwesomeIcon icon={faFacebook} /></li></Link>
+          </div>
+      </div>
     </div>
   );
 };
@@ -142,7 +152,15 @@ const Form = ({ onSubmit, username, setUsername, email, setEmail, password, setP
           )}
         </form>
       </div>
-      <MyFooter />
+      <div id="Footer_Dash">
+          <div>
+          <Link to="https://www.linkedin.com/in/godswill-ogono-861802144/"><li><FontAwesomeIcon icon={faLinkedin} /></li></Link>
+          <Link to="https://www.twitter.com/"><li><FontAwesomeIcon icon={faTwitter} /></li></Link>
+          <Link to="https://www.instagram.com/godswill_oj/"><li><FontAwesomeIcon icon={faInstagram} /></li></Link>
+          <Link to="https://api.whatsapp.com/send?phone=2347036744231&text=Hello, more information!"><li><FontAwesomeIcon icon={faWhatsapp} /></li></Link>
+          <Link to="https://wwww.facebook.com/"><li><FontAwesomeIcon icon={faFacebook} /></li></Link>
+          </div>
+      </div>
     </div>
   );
 };
