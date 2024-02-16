@@ -16,4 +16,8 @@ userRouter.get('/dashboard', isAuthenticated, userController.fetchUserData); // 
 
 userRouter.get('/', isAuthenticated, userController.fetchUserData);
 
+// Add a new route to fetch users by state
+userRouter.get('/usersByState/:state', isAuthenticated, userController.fetchUsersByState);
+
+
 export { userRouter };

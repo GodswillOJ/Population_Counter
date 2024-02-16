@@ -136,7 +136,7 @@ const Dashboard = () => {
                         </ul> */}
                         <div id="highlights">
                             <h1>Good Day, {userData.username}!</h1>
-                            <p>Hey Samantha, Here is your store overview</p>
+                            <p>Hey {userData.username}, Here is your account overview</p>
                         </div>
 
                         <div id="total_sales">
@@ -145,7 +145,7 @@ const Dashboard = () => {
                                 <h3>10,200</h3>
                             </div>
                             <div className="sales_total">
-                                <p>New sales</p>
+                                <p>New Database Access</p>
                                 <h3>10,200</h3>
                             </div>
                         </div>
@@ -156,11 +156,11 @@ const Dashboard = () => {
                                 <Link to="" >view notification <i className="fa-solid fa-circle-chevron-right"></i></Link>
                             </li>
                             <li className="not_product">
-                                <p>18 new order notification</p>
+                                <p>18 new clicks notification</p>
                                 <Link to="" >view notification <i className="fa-solid fa-circle-chevron-right"></i></Link>
                             </li>
                             <li className="not_product">
-                                <p>5 pending order payments notification</p>
+                                <p>5 pending contacts notification</p>
                                 <Link to="" >view notification <i className="fa-solid fa-circle-chevron-right"></i></Link>
                             </li>
                         </div>

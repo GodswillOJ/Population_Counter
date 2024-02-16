@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretDown, faUser, faBell, faEnvelope, faPalette } from '@fortawesome/free-solid-svg-icons';
+import { faCaretDown, faUser, faMagnifyingGlass, faEnvelope, faPalette } from '@fortawesome/free-solid-svg-icons';
 import { Link, NavLink } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
@@ -48,10 +48,9 @@ const CounterNav = ({ isLoggedIn, onLogout }) => {
             <FontAwesomeIcon icon={faPalette} />
           </li>
         </Link>
-        <Link to="/notifications">
+        <Link to="/search-user">
           <li>
-            <FontAwesomeIcon icon={faBell} />
-            <FontAwesomeIcon icon={faCaretDown} />
+          <FontAwesomeIcon icon={faMagnifyingGlass} />
           </li>
         </Link>
         <Link to="/">

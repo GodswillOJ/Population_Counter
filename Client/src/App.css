@@ -364,12 +364,23 @@ main{
 }
 
 /* style.css */
-
+.Find_data{
+  position: relative;
+  margin: 10rem;
+}
+body.dark-theme .Find_data{
+  color: #fff;
+}
 
 
 
 @media screen and (max-width: 760px) {
   /* Navbar.css */
+  .Find_data{
+    position: relative;
+    margin: 2rem;
+    margin-top: 4rem;
+  }
 
 .navbar {
   display: flex;

@@ -111,3 +111,14 @@ export const fetchUserData = async (req, res) => {
   }
 };
 
+// Controller function to fetch users by state
+export const fetchUsersByState = async (req, res) => {
+  try {
+    const { state } = req.params;
+    const users = await Population.find({ state }); // Query users by state
+    res.json(users);
+  } catch (error) {
+    console.error('Error fetching users by state:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};

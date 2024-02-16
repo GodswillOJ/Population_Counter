@@ -16,7 +16,8 @@ const popSchema = new mongoose.Schema({
   },
   dateOfBirth: {
     type: Date,
-    required: true
+    required: true,
+    default: Date.now()
   },
   nin: {
     type: String,
